@@ -9,39 +9,32 @@
 import UIKit
 
 class MainViewController: UITableViewController {
+    
+    var restaurantNames = [
+        "Burger Heroes", "Kitchen", "Bonsai", "Дастархан",
+        "Индокитай", "X.O", "Балкан Гриль", "Sherlock Holmes",
+        "Speak Easy", "Morris Pub", "Вкусные истории",
+        "Классик", "Love&Life", "Шок", "Бочка"
+    ]
  
     override func viewDidLoad() {
         super.viewDidLoad()
         }
-    
-    // Return the number of rows for the table.
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 3
-    }
-
-    // Provide a cell object for each row.
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       // Fetch a cell of the appropriate type.
-       let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-       
-       // Configure the cell’s contents.
-       cell.textLabel!.text = "Hello, Dasha!"
-           
-       return cell
-    }
-    }
 
 
     // MARK: - Table view data source
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return restaurantNames.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+       
+        cell.textLabel?.text = restaurantNames[indexPath.row]
+        cell.imageView?.image = UIImage(named: restaurantNames[indexPath.row])
+        
+        return cell
     }
 
     /*
@@ -98,5 +91,5 @@ class MainViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+}
 

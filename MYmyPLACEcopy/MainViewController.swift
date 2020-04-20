@@ -9,25 +9,37 @@
 import UIKit
 
 class MainViewController: UITableViewController {
-
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        }
+    
+    // Return the number of rows for the table.
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return 3
     }
+
+    // Provide a cell object for each row.
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       // Fetch a cell of the appropriate type.
+       let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+       
+       // Configure the cell’s contents.
+       cell.textLabel!.text = "Hello, Dasha!"
+           
+       return cell
+    }
+    }
+
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
@@ -87,4 +99,4 @@ class MainViewController: UITableViewController {
     }
     */
 
-}
+
